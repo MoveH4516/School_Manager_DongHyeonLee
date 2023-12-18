@@ -1,12 +1,12 @@
-package School_이동현2;
+package School_이동현;
 
 import java.util.ArrayList;
 
 public class StudentDAO {
-	ArrayList<Student> stuList = new ArrayList<Student>();
-	int maxNum;
+	public ArrayList<Student> stuList = new ArrayList<Student>();
+	public int maxNum;
 	
-	void init(String data) {
+	public void init(String data) {
 		String[] temp = data.split("\n");
 		for (int i = 0; i < temp.length; i++) {
 			String[] temp2 = temp[i].split("/");
@@ -16,7 +16,7 @@ public class StudentDAO {
 		}
 	}
 	
-	String saveData() {
+	public String saveData() {
 		if (stuList.size() == 0) return "";
 		String data = "";
 		for (Student s : stuList) {
@@ -25,7 +25,7 @@ public class StudentDAO {
 		return data;
 	}
 	
-	String checkId() {
+	private String checkId() {
 		String id = Util.getStrVal("id");
 		for (int i = 0; i < stuList.size(); i++) {
 			if (stuList.get(i).stuid.equals(id)) {
@@ -35,7 +35,7 @@ public class StudentDAO {
 		return id;
 	}
 	
-	void addStudent() {
+	public void addStudent() {
 		String id = checkId();
 		if (id == null) {
 			System.out.println("아이디 중복");
@@ -48,7 +48,7 @@ public class StudentDAO {
 		System.out.println("학생 추가 완료");
 	}
 	
-	void updateMaxNum() {
+	public void updateMaxNum() {
 		int max = 0;
 		for (int i = 0; i < stuList.size(); i++) {
 			if (max < stuList.get(i).stuNo) {
@@ -58,7 +58,7 @@ public class StudentDAO {
 		maxNum = max;
 	}
 	
-	void removeStu(SubjectDAO subDAO) {
+	public void removeStu(SubjectDAO subDAO) {
 		if (stuList.size() == 0) {
 			System.out.println("[No Data]");
 			return;
@@ -85,7 +85,7 @@ public class StudentDAO {
 		System.out.println("학생 삭제 완료");
 	}
 	
-	void printAllStu(SubjectDAO subDAO) {
+	public void printAllStu(SubjectDAO subDAO) {
 		ArrayList<Student> temp = new ArrayList<Student>();
 		for (int i = 0; i < stuList.size(); i++) {
 			temp.add(stuList.get(i));
@@ -130,7 +130,7 @@ public class StudentDAO {
 	}
 	
 	
-	void printDataforSub(SubjectDAO subDAO) {
+	public void printDataforSub(SubjectDAO subDAO) {
 		String name = subDAO.checkName();
 		int idx = -1;
 		for (int i = 0; i < subDAO.subList.size(); i++) {

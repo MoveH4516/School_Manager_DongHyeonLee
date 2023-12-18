@@ -1,4 +1,4 @@
-package School_이동현2;
+package School_이동현;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

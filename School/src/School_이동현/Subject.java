@@ -1,11 +1,11 @@
-package School_이동현2;
+package School_이동현;
 
 public class Subject {
-	int stuNo;
-	String subName;
-	int Score;
+	public int stuNo;
+	public String subName;
+	public int Score;
 	
-	void init(int no, String name, int score) {
+	public void init(int no, String name, int score) {
 		this.stuNo = no;
 		this.subName = name;
 		this.Score = score;
@@ -16,7 +16,7 @@ public class Subject {
 		return subName + " " + Score + "점 ";
 	}
 
-	String saveData() {
+	public String saveData() {
 		return "%d/%s/%d\n".formatted(stuNo, subName, Score);
 	}
 	

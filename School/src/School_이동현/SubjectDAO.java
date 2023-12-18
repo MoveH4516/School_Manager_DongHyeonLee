@@ -1,13 +1,13 @@
-package School_이동현2;
+package School_이동현;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 public class SubjectDAO {
-	ArrayList<Subject> subList = new ArrayList<Subject>();
-	Random rd = new Random();
+	public ArrayList<Subject> subList = new ArrayList<Subject>();
+	private Random rd = new Random();
 	
-	void init(String data) {
+	public void init(String data) {
 		String[] temp = data.split("\n");
 		for (int i = 0; i < temp.length; i++) {
 			String[] temp2 = temp[i].split("/");
@@ -17,7 +17,7 @@ public class SubjectDAO {
 		}
 	}
 	
-	int checkNum(StudentDAO stuDAO) {
+	private static int checkNum(StudentDAO stuDAO) {
 		int num = Util.getIntVal("학번입력", 1001, stuDAO.maxNum);
 		for (int i = 0; i < stuDAO.stuList.size(); i++) {
 			if (stuDAO.stuList.get(i).stuNo == num) return num;
@@ -25,12 +25,12 @@ public class SubjectDAO {
 		return -1;
 	}
 	
-	String checkName() {
+	public String checkName() {
 		String name = Util.getStrVal("과목 이름");
 		return name;
 	}
 	
-	void addSubject(StudentDAO stuDAO) {
+	public void addSubject(StudentDAO stuDAO) {
 		int num = checkNum(stuDAO);
 		if (num == -1) {
 			System.out.println("일치하는 학번이 없습니다.");
@@ -51,7 +51,7 @@ public class SubjectDAO {
 		System.out.println("과목 추가완료");
 	}
 	
-	String saveData() {
+	public String saveData() {
 		if (subList.size() == 0) return "";
 		String data = "";
 		for (Subject s : subList) {
@@ -60,7 +60,7 @@ public class SubjectDAO {
 		return data;
 	}
 	
-	void removeSub(StudentDAO stuDAO) {
+	public void removeSub(StudentDAO stuDAO) {
 		int num = checkNum(stuDAO);
 		if (num == -1) {
 			System.out.println("일치하는 학번이 없습니다.");

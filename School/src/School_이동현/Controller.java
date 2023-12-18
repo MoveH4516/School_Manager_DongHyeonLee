@@ -1,17 +1,16 @@
-package School_이동현2;
+package School_이동현;
 
 public class Controller {
-	StudentDAO stuDAO;
-	SubjectDAO subDAO;
-	Util u;
+	private StudentDAO stuDAO;
+	private SubjectDAO subDAO;
 	
-	Controller() {
+	public Controller() {
 		stuDAO = new StudentDAO();
 		subDAO = new SubjectDAO();
 		Util.loadFile(stuDAO, subDAO);
 	}
 	
-	void menu() {
+	private void menu() {
 		System.out.println("[1]학생추가"); // 학번(1001) 자동증가 : 학생id 중복 불가  
 		System.out.println("[2]학생삭제"); // 학생 id 입력후 삭제 과목도 같이 삭제 
 		System.out.println("[3]과목추가"); //학번 입력후 점수 랜덤 50-100 : 과목이름 중복 저장불가능
@@ -23,7 +22,7 @@ public class Controller {
 		System.out.println("[0] 종료");
 	}
 	
-	void run() {
+	public void run() {
 		while (true) {
 			menu();
 			int sel = Util.getIntVal("메뉴선택", 0, 8);
